@@ -1,0 +1,13 @@
+#log_in {
+	position: relative;
+	top: 50%;
+	left: 50%;
+}
+
+.teesheet {
+	border-style: solid;
+	border-color: black;
+	border-width: 2px;
+	height: 80%;
+	width: 80%;
+}
