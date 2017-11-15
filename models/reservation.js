@@ -4,6 +4,10 @@ module.exports = function(sequelize, DataTypes) {
     		type:DataTypes.STRING,
     		allowNull:false,
     	},
+        weekday: {
+            type:DataTypes.STRING,
+            allowNull:false,
+        },
     	groupName: {
     		type:DataTypes.STRING,
     		allowNull:false,
@@ -12,7 +16,7 @@ module.exports = function(sequelize, DataTypes) {
     		}
     	},
     	playerCount:{
-    		type:DataTypes.INTEGER,
+    		type:DataTypes.TINYINT,
     		defaultValue:1,
     		validate:{
     			isInt: true,
