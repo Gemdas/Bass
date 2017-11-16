@@ -14,10 +14,10 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "sbiswas2",
-    "password": "Purdue06",
-    "database": "teetime",
-    "host": "teeparty.cfe74puirwlv.us-west-2.rds.amazonaws.com",
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
     "dialect": "mysql"
   }
 }
