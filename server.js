@@ -4,6 +4,8 @@
 // =============================================================
 var express = require("express");
 var bodyParser = require("body-parser");
+var passport = require('passport');
+var Strategy = require('passport-local').Strategy;
 
 // Sets up the Express App
 // =============================================================
@@ -24,8 +26,17 @@ app.use(express.static("public"));
 
 // Routes
 // =============================================================
-var login = require('./loginRoute.js');
-require("./htmlRoutes.js")(app);
+require('./public/loginRoute.js')(app);
+require("./public/htmlRoutes.js")(app);
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.post('/', 
+  passport.authenticate('local', { failureRedirect: '/' }),
+  function(req, res) {
+    res.redirect('/');
+  });
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================

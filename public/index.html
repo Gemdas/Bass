@@ -16,7 +16,7 @@
                     Log In
                 </div>
                 <div class="card-body">
-                    <form>
+                    <form >
                         <div class="form-group">
                             <label for="email">Email address</label>
                             <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
@@ -55,7 +55,7 @@
     function login(user) {
 
         $.post("/", user, function() {
-          window.location.href = "/tee-sheet";
+           console.log("User: " + user); 
         });
     }
     
