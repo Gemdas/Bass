@@ -24,7 +24,7 @@ module.exports = function(sequelize, DataTypes) {
     			min: 1
     		}	
     	}
-    }
+    })
     Reservation.associate=function(models){
    		Reservation.belongsTo(models.user, {
    			onDelete: "CASCADE",
