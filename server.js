@@ -4,6 +4,11 @@
 // =============================================================
 var express = require("express");
 var bodyParser = require("body-parser");
+var passport = require("passport");
+var Strategy = require("passport-local").Strategy;
+var session = require("express-session");
+var env = require("dotenv").load();
+var exphbs = require("express-handlebars")
 
 // Sets up the Express App
 // =============================================================
@@ -16,16 +21,34 @@ var db = require("./models");
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.text());
-app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 // Static directory
 app.use(express.static("public"));
 
+
 // Routes
 // =============================================================
-var login = require('./loginRoute.js');
-require("./htmlRoutes.js")(app);
+var htmlRoute = require("./routes/htmlRoutes.js")(app);
+var loginRoute = require('./routes/loginRoute.js')(app,passport);
+
+//load passport strategies
+require('./config/passport.js')(passport, db.user);
+
+// For Passport
+app.use(session({
+    secret: 'keyboard cat',
+    resave: true,
+    saveUninitialized: true
+})); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+
+app.post('/', 
+  passport.authenticate('local', { failureRedirect: '/' }),
+  function(req, res) {
+    res.redirect('/');
+  }
+);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
