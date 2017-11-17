@@ -28,15 +28,19 @@ app.use(express.static("public"));
 
 // Routes
 // =============================================================
-var htmlRoute = require("./routes/htmlRoute.js")(app);
-//load passport strategies
-// LOOK AND SEE WHAT MODELS.USER MEANS...
-require('./config/passport.js')(passport, models.user);
+var htmlRoute = require("./routes/htmlRoutes.js")(app);
+var loginRoute = require('./routes/loginRoute.js')(app,passport);
 
-app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
- 
+//load passport strategies
+require('./config/passport.js')(passport, db.user);
+
+// For Passport
+app.use(session({
+    secret: 'keyboard cat',
+    resave: true,
+    saveUninitialized: true
+})); // session secret
 app.use(passport.initialize());
- 
 app.use(passport.session()); // persistent login sessions
 
 app.post('/', 
