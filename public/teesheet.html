@@ -1,20 +1,61 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>Log-in</title>
-	<!-- bootstrap cdn -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <title>Tee Sheet</title>
+    <!-- bootstrap cdn -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-<!-- this page wil house the teesheet that's created in the backend database -->
+    <div class="container">
+        <!-- this page wil house the teesheet (table) that's created in the backend database.  This will be created dynamically using jQuery.  The user will be required select a time and group size.  The userInput will be sent out through a post request out to the database.  The page will then refresh showing the updated table. -->
+        <div id="days">
+            <input class="btn btn-success" type="submit" value="Monday">
+            <input class="btn btn-success" type="submit" value="Tuesday">
+            <input class="btn btn-success" type="submit" value="Wednesday">
+            <input class="btn btn-success" type="submit" value="Thursday">
+            <input class="btn btn-success" type="submit" value="Friday">
+            <input class="btn btn-success" type="submit" value="Saturday">
+            <input class="btn btn-success" type="submit" value="Sunday">
+        </div>
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+                <h2>Tee Sheet</h2>
+                <hr>
+                <div id="teesheet"></div>
+            </div>
+        </div>
+    </div>
+    <!-- bootstrap js -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <!-- personal javascript -->
+    <script type="text/javascript">
+    // reservations need id (from login), group size and time
+    $(document).ready(function() {
+        // variables
+        var id;
+        var groupSize;
+        var teeTime;
 
+        // Need to dynamically create rows
+        // Each row will have a button.  The buttons will house a form for the user to input group size.  The buttons will be on the teesheet, so they will already be associated with a time. (this)
 
-
+    });
+    </script>
+  
 <!-- bootstrap js -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
 
+
+    
+
 </body>
+
 </html>
