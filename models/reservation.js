@@ -8,30 +8,35 @@ module.exports = function(sequelize, DataTypes) {
             type:DataTypes.STRING,
             allowNull:false,
         },
-    	groupName: {
+    	firstPlayerName: {
     		type:DataTypes.STRING,
     		allowNull:false,
     		validate:{
     			notEmpty: true
     		}
     	},
-    	playerCount:{
-    		type:DataTypes.TINYINT,
-    		defaultValue:1,
-    		validate:{
-    			isInt: true,
-    			max: 4,
-    			min: 1
-    		}	
+        secondPlayerName: {
+            type:DataTypes.STRING,
+            validate:{
+                notEmpty: true
+            }
+        },
+        thirdPlayerName: {
+            type:DataTypes.STRING,
+            validate:{
+                notEmpty: true
+            }
+        },
+        fourthPlayerName: {
+            type:DataTypes.STRING,
+            validate:{
+                notEmpty: true
+            }
+        },
+    	isFull:{
+    		type:DataTypes.BOOLEAN,
+    		defaultValue:false,	
     	}
-    }
-    Reservation.associate=function(models){
-   		Reservation.belongsTo(models.user, {
-   			onDelete: "CASCADE",
-			foreignKey: {
-				allowNull: false
-   			}
-   		})
     }
     return Reservation;
 }
