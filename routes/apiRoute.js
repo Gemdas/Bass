@@ -1,3 +1,5 @@
+var db = require('../models');
+
 module.exports = function (app) {
 	//GET ALL Days
 	app.get("/days", function (req, res) {
@@ -16,12 +18,13 @@ module.exports = function (app) {
 			where: {
 				weekday: req.params.weekday
 			}
-		}).catch(err => {
-			res.json(err);
-		})
+		
 	}).then(day => {
 		res.json(day);
+	}).catch(err => {
+			res.json(err);
 	})
+})
 	//GET ALL Users
 	app.get("/users", function (req, res) {
 		db.user.findAll({}).then(users => {

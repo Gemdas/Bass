@@ -1,6 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
     var Reservation = sequelize.define("reservation", {
-        time: {
+        teeTime: {
             type: DataTypes.STRING,
             allowNull: false,
         },
@@ -38,6 +38,8 @@ module.exports = function (sequelize, DataTypes) {
             defaultValue: false,
         }
 
+    }, {
+        timestamps: false
     })
     return Reservation;
 }

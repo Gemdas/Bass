@@ -1,4 +1,6 @@
 var path = require("path");
+var db = require('../models');
+var moment = require('moment');
 
 module.exports = function (app) {
 
@@ -7,7 +9,7 @@ module.exports = function (app) {
 	})
 	app.get("/teetime/:day", function (req, res) {
 		//pull day from days
-		db.day.findBy({
+		db.day.findOne({
 			where: {
 				weekday: req.params.day
 			}
@@ -17,10 +19,11 @@ module.exports = function (app) {
 			var close = parseInt(day.closeTime.split(':')[0]) * 60 + parseInt(day.closeTime.split(':')[1]);
 			for (var x = open; x < close; x += day.iteration) {
 				times.push({
-					time: parseInt(x / 60) + ":" + (x % 60)
+					displayTime: moment(parseInt(x / 60) + ":" + (x % 60),"HH:mm").format('hh:mm a'),
+					dataTime: moment(parseInt(x / 60) + ":" + (x % 60),"HH:mm").format('hhmma')
 				})
 			}
-			res.render({
+			res.render("index",{
 				isOpen: day.isOpen,
 				weekday: day.weekday,
 				times
@@ -37,6 +40,7 @@ module.exports = function (app) {
 
 	})
 
+};
 //   // adding teeTimes Route
 //   app.get("/teetime", function(req, res){
 //   	var array = [];
