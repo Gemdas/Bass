@@ -38,6 +38,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Static directory
 app.use(express.static("public"));
 
+// setting handlebars server
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.set('view engine', 'handlebars');
 
 // Routes
 // =============================================================
