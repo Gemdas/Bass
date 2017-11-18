@@ -2,12 +2,10 @@
 // *** To Dos
 // =============================================================
 // ****** Admin Page
-// ****** New User Page
 // ****** Sequelize to Create New User
 // ****** Dynamically Create Tee Sheet Table
 // ****** Email Notifications to Admin Page
 // ****** Get User ID during Authentication
-// ****** Handlebars Views
 // ****** Style Front End
 
 
