@@ -5,11 +5,11 @@
 
 
 	<div class="row">
-		<div class="col-sm-8">
-			{{#each User}}
-			<h1>Hello {{firstName}}</h1>
+		<div class="col-sm-12">
+			{{!-- {{#each User}} --}}
+			<h1>Hello {userName}</h1>
 			<h2>Select a tee time</h2>
-			{{/each}}
+			{{!-- {{/each}} --}}
 		</div>
 	</div>
 
@@ -48,7 +48,7 @@
 		    		<td>
 		    			{{!-- I have to get an index from handlebars to this form.  That will store the date and time on the click --}}
 			    		<span class="input-group-btn">
-							<button class="btn btn-primary" type="submit">Form
+							<button id="submit" class="btn btn-primary" data-id="{{tirID}}" type="submit">Form
 							</button>
 			    		</span>
 		    		</td>
@@ -64,8 +64,43 @@
 	</div>
 </div>
 
+<br>
+<br>
 
+{{!-- module that appears when the button "form" has been selected --}}
+<div class="row">
+	<div id="form" class="col-sm-12">
+	{{!-- bootstrap radio button --}}
+	  <div class="ui-dialog-titlebar">
+		How many players?
+	  </div>
+		<div class="form-check form-check-inline">
+  			<label class="form-check-label">
+    			<input class="form-check-input" type="radio" name="inlineRadioOptions" id="player1" value="option1"> 1
+  			</label>
+		</div>
+		<div class="form-check form-check-inline">
+  			<label class="form-check-label">
+    			<input class="form-check-input" type="radio" name="inlineRadioOptions" id="player2" value="option2"> 2
+  			</label>
+		</div>
+		<div class="form-check form-check-inline">
+  			<label class="form-check-label">
+    			<input class="form-check-input" type="radio" name="inlineRadioOptions" id="player3" value="option3"> 3
+  			</label>
+		</div>
+		<div class="form-check form-check-inline">
+  			<label class="form-check-label">
+    			<input class="form-check-input" type="radio" name="inlineRadioOptions" id="player3" value="option3"> 4
+  			</label>
+		</div>
+
+			  <button id="players" class="btn btn-primary" type="submit">Submit</button>
+		    </div>
+	</div>
+</div>
     
+
 </div>
 
 
