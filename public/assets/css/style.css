@@ -24,3 +24,8 @@
 	background-size: 100% 200%;
     background-repeat: no-repeat;
 }
+
+.card-header {
+	background-color: #076652;
+	color: white;
+}
