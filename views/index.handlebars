@@ -27,14 +27,15 @@
 		  </thead>
 		  <tbody>
 
-		  	{{#each time}}
-		  	{{#if this.isOpen}}
+			{{#if this.isOpen}}
+		  	{{#each times}}
 		    	<tr scope="row">
 		    		<td>
-		    			{{this.openTime}}
+		    			{{this.time}}
 		    		</td>
 		    		<td>
-		    			
+		    			{{!-- will be passed an obj with isOpen.  This will have an object holding the day.  the object is holding an array of iterated times.  those times need to be displayed --}}
+
 		    		</td>
 		    		<td>
 		    			
@@ -48,13 +49,13 @@
 		    		<td>
 		    			{{!-- I have to get an index from handlebars to this form.  That will store the date and time on the click --}}
 			    		<span class="input-group-btn">
-							<button id="submit" class="btn btn-primary" data-id="{{tirID}}" type="submit">Form
+							<button id="submit" class="btn btn-primary" data-time="{{this.time}}" type="submit">Form
 							</button>
 			    		</span>
 		    		</td>
-		    	</tr>	
-		    {{/if}}
+		    	</tr>	 
 		    {{/each}}
+		    {{/if}}
 			{{!-- possible display for looping over handlebars --}}
 		    {{!-- {{#teetimes 10}}
 				<span>{{this}}</span>
