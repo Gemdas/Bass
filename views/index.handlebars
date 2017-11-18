@@ -1,0 +1,56 @@
+{{!-- this will have a page that can be used for admins and users --}}
+{{!-- edit their profile information --}}
+{{!-- iterate and create a table blank, once the table loads, go through jQuery (ajax) through the day with a get request on that day --}}
+<div class="container">
+
+
+	<div class="row">
+		<div class="col-sm-8">
+			{{#each User}}
+			<h1>Hello {{firstName}}</h1>
+			<h2>Select a tee time</h2>
+			{{/each}}
+		</div>
+	</div>
+
+<div class="row">
+	<div class="col-sm-12">
+		<table class="table">
+		  <thead>
+		    <tr>
+		      <th scope="col">Time</th>
+		      <th scope="col">Player 1</th>
+		      <th scope="col">Player 2</th>
+		      <th scope="col">Player 3</th>
+		      <th scope="col">Player 4</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		  	{{#each time}}
+		  	{{#if isOpen}}
+		    	<tr scope="row">
+		    		{{openTime}}
+		    		<td>
+			    		<span class="input-group-btn">
+							<button class="btn btn-primary" type="submit">Form
+							</button>
+			    		</span>
+		    		</td>
+		    	</tr>	
+		    {{/if}}
+		    {{/each}}
+			{{!-- possible display for looping over handlebars --}}
+		    {{!-- {{#teetimes 10}}
+				<span>{{this}}</span>
+		    {{/teetimes}} --}}
+		  </tbody>
+		</table>
+	</div>
+</div>
+
+
+    
+</div>
+
+
+

@@ -1,37 +1,43 @@
-module.exports = function(sequelize, DataTypes) {
-	var Reservation = sequelize.define("reservation",{
-		time: {
-    		type:DataTypes.STRING,
-    		allowNull:false,
-    	},
-        weekday: {
-            type:DataTypes.STRING,
-            allowNull:false,
+module.exports = function (sequelize, DataTypes) {
+    var Reservation = sequelize.define("reservation", {
+        time: {
+            type: DataTypes.STRING,
+            allowNull: false,
         },
-    	groupName: {
-    		type:DataTypes.STRING,
-    		allowNull:false,
-    		validate:{
-    			notEmpty: true
-    		}
-    	},
-    	playerCount:{
-    		type:DataTypes.TINYINT,
-    		defaultValue:1,
-    		validate:{
-    			isInt: true,
-    			max: 4,
-    			min: 1
-    		}	
-    	}
-    }
-    Reservation.associate=function(models){
-   		Reservation.belongsTo(models.user, {
-   			onDelete: "CASCADE",
-			foreignKey: {
-				allowNull: false
-   			}
-   		})
-    }
+        weekday: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        firstPlayerName: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                notEmpty: true
+            }
+        },
+        secondPlayerName: {
+            type: DataTypes.STRING,
+            validate: {
+                notEmpty: true
+            }
+        },
+        thirdPlayerName: {
+            type: DataTypes.STRING,
+            validate: {
+                notEmpty: true
+            }
+        },
+        fourthPlayerName: {
+            type: DataTypes.STRING,
+            validate: {
+                notEmpty: true
+            }
+        },
+        isFull: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false,
+        }
+
+    })
     return Reservation;
 }
