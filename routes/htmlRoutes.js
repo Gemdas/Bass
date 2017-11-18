@@ -1,4 +1,5 @@
 var path = require("path");
+var db = require()
 
 module.exports = function (app) {
 
@@ -7,7 +8,7 @@ module.exports = function (app) {
 	})
 	app.get("/teetime/:day", function (req, res) {
 		//pull day from days
-		db.day.findBy({
+		db.day.findOne({
 			where: {
 				weekday: req.params.day
 			}
