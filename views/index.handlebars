@@ -1,21 +1,23 @@
 {{!-- this will have a page that can be used for admins and users --}}
 {{!-- edit their profile information --}}
-{{!-- iterate and create a table blank, once the table loads, go through jQuery (ajax) through the day with a get request on that day --}}
+{{!-- iterate and create a teesheet blank, once the teesheet loads, go through jQuery (ajax) through the day with a get request on that day --}}
 <div class="container">
 
 
 	<div class="row">
 		<div class="col-sm-8">
+
 			{{#each User}}
 			<h1>Hello {{firstName}}</h1>
 			<h2>Select a tee time</h2>
 			{{/each}}
+			
 		</div>
 	</div>
 
 <div class="row">
 	<div class="col-sm-12">
-		<table class="table">
+		<table class="teesheet">
 		  <thead>
 		    <tr>
 		      <th scope="col">Time</th>
@@ -26,6 +28,7 @@
 		    </tr>
 		  </thead>
 		  <tbody>
+
 		  	{{#each time}}
 		  	{{#if isOpen}}
 		    	<tr scope="row">
@@ -39,6 +42,7 @@
 		    	</tr>	
 		    {{/if}}
 		    {{/each}}
+
 		  </tbody>
 		</table>
 	</div>
