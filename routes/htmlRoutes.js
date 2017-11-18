@@ -4,7 +4,7 @@ module.exports = function (app) {
 
 	app.get("/", function (req, res) {
 		res.sendFile(path.join(__dirname, "./public/index.html"));
-	});
+	})
 	app.get("/teetime/:day", function (req, res) {
 		//pull day from days
 		db.day.findBy({
