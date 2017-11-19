@@ -57,20 +57,21 @@
             password: $("#password").val().trim()
         };
 
-        $.ajax("/users", {
+        /*$.ajax({
             type: "POST", 
+            url: "/users",
             data: user
         }).then(function(error, result) {
             if (error) {
-                return console.log("Error: " + error);
+                return console.log("Error in html: " + error);
             }
 
             console.log("ajax post working in index.html");
-        })
-
-        /*$.post("/users", user, function() {
-            console.log("index.html post working");
         })*/
+
+        $.post("/users", user, function(res) {
+            console.log("Result: " + res);
+        })
 
         /*$.ajax("/users", {
             type: "POST", 
