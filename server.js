@@ -58,12 +58,12 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
-app.post('/', 
+/*app.post('/', 
   passport.authenticate('local', { failureRedirect: '/' }),
   function(req, res) {
     res.redirect('/');
   }
-);
+);*/
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
