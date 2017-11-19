@@ -40,12 +40,6 @@ app.use(express.static("public"));
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
-// Routes
-// =============================================================
-var htmlRoute = require("./routes/htmlRoutes.js")(app);
-var apiRoute = require("./routes/apiRoute.js")(app);
-var loginRoute = require('./routes/loginRoute.js')(app,passport);
-
 //load passport strategies
 require('./config/passport.js')(passport, db.user);
 
@@ -57,6 +51,12 @@ app.use(session({
 })); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
+
+// Routes
+// =============================================================
+var htmlRoute = require("./routes/htmlRoutes.js")(app);
+var apiRoute = require("./routes/apiRoute.js")(app);
+var loginRoute = require('./routes/loginRoute.js')(app,passport);
 
 /*app.post('/', 
   passport.authenticate('local', { failureRedirect: '/' }),
