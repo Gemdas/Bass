@@ -8,7 +8,7 @@
 		<div class="col-sm-12">
 			{{!-- {{#each User}} --}}
 			<h1>Hello {userName}</h1>
-			<h2>Select a tee time</h2>
+			<h2 id="day" data-day={{this.weekday}}>Select a tee time for {{this.weekday}}</h2>
 			{{!-- {{/each}} --}}
 		</div>
 	</div>
@@ -27,34 +27,44 @@
 		  </thead>
 		  <tbody>
 
-		  	{{#each time}}
-		  	{{#if this.isOpen}}
+			{{#if this.isOpen}}
+		  	{{#each times}}
 		    	<tr scope="row">
 		    		<td>
-		    			{{this.openTime}}
+		    			{{this.displayTime}}
 		    		</td>
 		    		<td>
-		    			{{this.player1}}
+		    			{{!-- will be passed an obj with isOpen.  This will have an object holding the day.  the object is holding an array of iterated times.  those times need to be displayed --}}
+		    			<p class="player1 {{this.dataTime}}">
+		    				
+		    			</p>
+
 		    		</td>
 		    		<td>
-		    			{{this.player2}}
+		    			<p class="player2 {{this.dataTime}}">
+		    				
+		    			</p>
 		    		</td>
 		    		<td>
-		    			{{this.player3}}
+		    			<p class="player3 {{this.dataTime}}">
+		    				
+		    			</p>
 		    		</td>
 		    		<td>
-		    			{{this.player4}}
+		    			<p class="player4 {{this.dataTime}}">
+		    				
+		    			</p>
 		    		</td>	
 		    		<td>
 		    			{{!-- I have to get an index from handlebars to this form.  That will store the date and time on the click --}}
 			    		<span class="input-group-btn">
-							<button id="submit" class="btn btn-primary" data-id="{{tirID}}" type="submit">Form
+							<button class="btn btn-primary submit" data-time="{{this.time}}" type="submit">Form
 							</button>
 			    		</span>
 		    		</td>
-		    	</tr>	
-		    {{/if}}
+		    	</tr>	 
 		    {{/each}}
+		    {{/if}}
 			{{!-- possible display for looping over handlebars --}}
 		    {{!-- {{#teetimes 10}}
 				<span>{{this}}</span>

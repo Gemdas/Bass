@@ -43,6 +43,7 @@ app.set('view engine', 'handlebars');
 // Routes
 // =============================================================
 var htmlRoute = require("./routes/htmlRoutes.js")(app);
+var apiRoute = require("./routes/apiRoute.js")(app);
 var loginRoute = require('./routes/loginRoute.js')(app,passport);
 
 //load passport strategies
@@ -66,7 +67,7 @@ app.post('/',
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync({}).then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
