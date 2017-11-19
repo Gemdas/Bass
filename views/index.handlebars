@@ -80,35 +80,36 @@
 {{!-- module that appears when the button "form" has been selected --}}
 <div class="row">
 	<div id="form" class="col-sm-12">
-	{{!-- bootstrap radio button --}}
-	  <div class="ui-dialog-titlebar">
-		How many players?
-	  </div>
-		<div class="form-check form-check-inline">
-  			<label class="form-check-label">
-    			<input class="form-check-input" type="radio" name="inlineRadioOptions" id="player1" value="option1"> 1
-  			</label>
-		</div>
-		<div class="form-check form-check-inline">
-  			<label class="form-check-label">
-    			<input class="form-check-input" type="radio" name="inlineRadioOptions" id="player2" value="option2"> 2
-  			</label>
-		</div>
-		<div class="form-check form-check-inline">
-  			<label class="form-check-label">
-    			<input class="form-check-input" type="radio" name="inlineRadioOptions" id="player3" value="option3"> 3
-  			</label>
-		</div>
-		<div class="form-check form-check-inline">
-  			<label class="form-check-label">
-    			<input class="form-check-input" type="radio" name="inlineRadioOptions" id="player3" value="option3"> 4
-  			</label>
-		</div>
-
-			  <button id="players" class="btn btn-primary" type="submit">Submit</button>
-		    </div>
+		<div class="form-group">
+		    <label for="input">Player 1</label>
+		    <input type="input" class="form-control" id="p1" placeholder="Last Name">
+  		</div>
+		<div class="form-group">
+		    <label for="input">Player 2</label>
+		    <input type="input" class="form-control" id="p2" placeholder="Last Name">
+  		</div>
+		<div class="form-group">
+		    <label for="input">Player 3</label>
+		    <input type="input" class="form-control" id="p3" placeholder="Last Name">
+  		</div>
+		<div class="form-group">
+		    <label for="input">Player 4</label>
+		    <input type="input" class="form-control" id="p4" placeholder="Last Name">
+  		</div>
+  		<div class="form-group">
+		    <label for="input">Time</label>
+		    <input type="input" class="form-control" id="time" placeholder="hhmma">
+  		</div>
+  		<div class="form-group">
+		    <label for="input">What Day</label>
+		    <input type="input" class="form-control" id="day" placeholder="weekday">
+  		</div>
+		{{!-- submit button for form --}}
+		<button type="submit" id="group" class="btn btn-primary">Submit</button>
 	</div>
 </div>
+
+
     
 
 </div>
