@@ -2,12 +2,10 @@
 // *** To Dos
 // =============================================================
 // ****** Admin Page
-// ****** New User Page
 // ****** Sequelize to Create New User
 // ****** Dynamically Create Tee Sheet Table
 // ****** Email Notifications to Admin Page
 // ****** Get User ID during Authentication
-// ****** Handlebars Views
 // ****** Style Front End
 
 
@@ -42,12 +40,6 @@ app.use(express.static("public"));
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
-// Routes
-// =============================================================
-var htmlRoute = require("./routes/htmlRoutes.js")(app);
-var apiRoute = require("./routes/apiRoute.js")(app);
-var loginRoute = require('./routes/loginRoute.js')(app,passport);
-
 //load passport strategies
 require('./config/passport.js')(passport, db.user);
 
@@ -60,12 +52,18 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
-app.post('/', 
+// Routes
+// =============================================================
+var htmlRoute = require("./routes/htmlRoutes.js")(app);
+var apiRoute = require("./routes/apiRoute.js")(app);
+var loginRoute = require('./routes/loginRoute.js')(app,passport);
+
+/*app.post('/', 
   passport.authenticate('local', { failureRedirect: '/' }),
   function(req, res) {
     res.redirect('/');
   }
-);
+);*/
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================

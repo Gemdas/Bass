@@ -31,7 +31,7 @@
                                 <input type="checkbox" class="form-check-input"> save password
                             </label>
                         </div>
-                        <button type="submit" class="btn btn-primary">Log In</button>
+                        <button type="submit" class="btn btn-primary" id="submit-btn">Log In</button>
                     </form>
                 </div>
             </div>
@@ -44,6 +44,58 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+    
+    $("#submit-btn").on("click", function(event) {
+        event.preventDefault();
+
+        console.log("click worked");
+
+        var user = {
+            email: $("#email").val().trim(),
+            password: $("#password").val().trim()
+        };
+
+        /*$.ajax({
+            type: "POST", 
+            url: "/users",
+            data: user
+        }).then(function(error, result) {
+            if (error) {
+                return console.log("Error in html: " + error);
+            }
+
+            console.log("ajax post working in index.html");
+        })*/
+
+        $.post("/users", user, function(res) {
+            console.log("Result: " + res);
+        })
+
+        /*$.ajax("/users", {
+            type: "POST", 
+            data: user
+        }).then(function(error, res) {
+
+            if (error) {
+                window.location = "localhost:8080/";
+            }
+            console.log("user information posted");
+
+            console.log(res);
+
+            if (res === "success") {
+                console.log("success is working");
+                window.location = "localhost:8080/teetime";
+            } else {
+                window.location = "localhost:8080/";
+            }
+        })*/
+    })
+
+</script>
+</script>
 
 </body>
 </html>
