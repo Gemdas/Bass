@@ -48,7 +48,7 @@ $(document).ready(function(){
 	// else put request to add new names to reservations
 		var group = {
 			 teeTime: $('#time').val().trim(),
-			 weekday: $('#day').val().trim(),
+			 weekday: $('#day').data('day'),
 			 firstPlayerName: $('#p1').val().trim(),
 			 secondPlayerName: $('#p2').val().trim(),
 			 thirdPlayerName: $('#p3').val().trim(),
@@ -59,8 +59,10 @@ $(document).ready(function(){
 		    type: "POST",
 		    data: group
 		}).then(
-		    function() {
+		    function(result) {
 		        console.log('teetime booked!');
+		        console.log(result);
+
 		        // location.reload();
 		    });
 	});

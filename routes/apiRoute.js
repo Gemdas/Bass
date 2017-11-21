@@ -64,6 +64,7 @@ module.exports = function (app) {
 	})
 	//POST Reservation
 	app.post("/reservations", function (req, res) {
+		console.log(req.body);
 		var secondPlayerName = req.body.secondPlayerName
 		var thirdPlayerName = req.body.thirdPlayerName
 		var fourthPlayerName = req.body.fourthPlayerName
@@ -80,7 +81,7 @@ module.exports = function (app) {
 			isFull = !isFull;
 		}
 		db.reservation.create({
-			time: req.body.time,
+			teeTime: req.body.teeTime,
 			weekday: req.body.weekday,
 			firstPlayerName: req.body.firstPlayerName,
 			secondPlayerName,
@@ -111,7 +112,7 @@ module.exports = function (app) {
 			isFull = !isFull;
 		}
 		db.reservation.create({
-			time: req.body.time,
+			teeTime: req.body.teeTime,
 			weekday: req.body.weekday,
 			firstPlayerName: req.body.firstPlayerName,
 			secondPlayerName,
