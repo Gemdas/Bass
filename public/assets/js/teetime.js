@@ -33,16 +33,36 @@ $(document).ready(function(){
 		});
 
 	});
-});
 
-$('#players').click(function (){
+
+	$('#group').on('click', function(event) {
+		event.preventDefault();
 	// need a get from the reservations table
-    // if occupied, how many players are there
-    // if 4 players, can't sign up there
-    // else put request to add new names to reservations
+	// if occupied, how many players are there
+	// if 4 players, can't sign up there
+	// else put request to add new names to reservations
+		var group = {
+			 teeTime: $('#time').val().trim(),
+			 weekday: $('#day').data('day'),
+			 firstPlayerName: $('#p1').val().trim(),
+			 secondPlayerName: $('#p2').val().trim(),
+			 thirdPlayerName: $('#p3').val().trim(),
+			 fourthPlayerName: $('#p4').val().trim()	 
+		}
+		console.log(group);
+		$.ajax('/reservations', {
+		    type: "POST",
+		    data: group
+		}).then(
+		    function(result) {
+		        console.log('teetime booked!');
+		        console.log(result);
 
-})
+		        location.reload();
+		    });
+	});
 
+});
 // Possible loop with handlebars function, TBD
 // Handlebars.registerHelpter('teetimes', function(n, block){
 // 	var openTime = '';
