@@ -25,7 +25,29 @@
     background-repeat: no-repeat;
 }
 
+.hndlbkgrd {
+	background-image: url('../img/viktor-kiryanov-101458.jpg');
+	background-size: 100% 200%;
+	background-repeat: no-repeat;
+}
+
 .card-header {
 	background-color: #076652;
 	color: white;
+}
+
+#teetimes {
+	overflow: scroll;
+	height: 700px;
+	background-color: white;
+}
+
+.header {
+	/*color: white;*/
+	text-align: center;
+}
+
+#edit {
+	left: 80%;
+	position: absolute;
 }

@@ -80,7 +80,7 @@ module.exports = function (app) {
 			isFull = !isFull;
 		}
 		db.reservation.create({
-			time: req.body.time,
+			teeTime: req.body.teeTime,
 			weekday: req.body.weekday,
 			firstPlayerName: req.body.firstPlayerName,
 			secondPlayerName,
@@ -111,7 +111,7 @@ module.exports = function (app) {
 			isFull = !isFull;
 		}
 		db.reservation.create({
-			time: req.body.time,
+			teeTime: req.body.teeTime,
 			weekday: req.body.weekday,
 			firstPlayerName: req.body.firstPlayerName,
 			secondPlayerName,
