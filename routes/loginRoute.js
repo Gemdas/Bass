@@ -1,6 +1,4 @@
-var moment= require("moment");
 module.exports = function(app, passport) {
-
 app.post('/users', passport.authenticate('local-signin', {
             successRedirect: '/pass',
  
@@ -8,10 +6,12 @@ app.post('/users', passport.authenticate('local-signin', {
         }
  
     ));
- app.get("/pass", function(req, res){
+app.get('/pass', function(req, res){
 	res.json(true);
-})
-app.get("/fail", function(req, res){
+});
+
+app.get('/fail', function(req, res){
 	res.json(false);
-})
+});
+
 }
