@@ -21,6 +21,7 @@ var session = require("express-session");
 var env = require("dotenv").load();
 var exphbs = require("express-handlebars")
 
+
 // Sets up the Express App
 // =============================================================
 var app = express();
@@ -56,6 +57,7 @@ app.use(passport.session()); // persistent login sessions
 // =============================================================
 var htmlRoute = require("./routes/htmlRoutes.js")(app);
 var apiRoute = require("./routes/apiRoute.js")(app);
+//var emailRoute = require("./routes/emailRoutes.js")(app);
 var loginRoute = require('./routes/loginRoute.js')(app,passport);
 
 /*app.post('/', 
