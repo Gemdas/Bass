@@ -38,9 +38,9 @@ module.exports = function (app) {
 		//the render page, using jquery, fills in the reservations
 	})
 
-	app.get("/teetime", function(req, res) {
-		res.send("Hello tee time world!");
-	})
+	// app.get("/teetime", function(req, res) {
+	// 	res.send("Hello tee time world!");
+	// })
 
   // app.get("/fail", function(req, res) {
   //   res.send("Hello failed world!");
