@@ -17,12 +17,11 @@ module.exports = function (app) {
 		}, {
 			where: {
 				weekday: req.params.weekday
-			}
-		
+			}	
 	}).then(day => {
 		res.json(day);
 	}).catch(err => {
-			res.json(err);
+		res.json(err);
 	})
 })
 	//GET ALL Users
