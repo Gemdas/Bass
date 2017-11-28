@@ -15,14 +15,19 @@
 		{{!-- Email --}}
 		<div class="form-group">
 			<label for="email">Email Address</label>
-			<input type="email" class="form-control" id="email" placeholder="Email Address">
+			<input type="email" class="form-control" id="email" placeholder="Email Address" value="{{email}}" readonly>
 		</div>
 
 		{{!-- Password --}}
 		<div class="form-group">
 			<label for="password">Password</label>
 			<input type="password" class="form-control" id="password" placeholder="Password">
-			<small id="passwordHelp" class="form-text text-muted">Must be at least 8 letters</small>
+			<small id="passwordHelp" class="form-text text-muted">Must be at least 8 characters</small>
+		</div>
+		{{!-- Confirm Password --}}
+		<div class="form-group">
+			<label for="confirmPassword">Confirm Password</label>
+			<input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password">
 		</div>
 
 		<button type="submit" class="btn btn-primary">Submit</button>

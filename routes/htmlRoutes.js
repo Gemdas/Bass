@@ -2,7 +2,7 @@ var path = require("path");
 
 var db = require('../models');
 var moment = require('moment');
-
+var url = require('url');
 
 module.exports = function (app) {
 
@@ -35,18 +35,24 @@ module.exports = function (app) {
 		//the render page, using jquery, fills in the reservations
 	})
 
-  app.get("/teetime", function(req, res) {
-    res.send("Hello tee time world!");
-  })
+	app.get("/teetime", function(req, res) {
+		res.send("Hello tee time world!");
+	})
 
-  app.get("/fail", function(req, res) {
-    res.send("Hello failed world!");
-  })
+ 	app.get("/fail", function(req, res) {
+		res.send("Hello failed world!");
+ 	})
+ 	app.get("/newuser", function(req, res){
+ 		var url_parts = url.parse(req.url, true);
+		var query = url_parts.query;
+		res.render("newUser", query)
+ 	})
 
 	app.get("/account/:id", function (req, res) {
 		//render of the user page based on id
 		db.user.findById(req.params.id).then(user => {
-			res.render(user);
+			//console.log(user);
+			res.render("account", user.dataValues);
 		})
 
 	})

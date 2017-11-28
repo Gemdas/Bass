@@ -1,0 +1,106 @@
+{{!-- javascript --}}
+<script src="../assets/js/accounts.js"></script>
+<div class="container">
+	<div class="card-header">User Page</div>
+	<h1>Hello {{this.firstName}} {{this.lastName}}</h1>
+	<p>Email: {{this.email}}</p>
+	<div>
+		<h2>Change your Password</h2>
+		{{!-- Current Password --}}
+		<div class="form-group">
+			<label for="currentPassword">Current Password</label>
+			<input type="password" class="form-control" id="currentPassword" placeholder="Current Password">
+		</div>
+		{{!-- Password --}}
+		<div class="form-group">
+			<label for="password">Password</label>
+			<input type="password" class="form-control" id="password" placeholder="Password">
+			<small id="passwordHelp" class="form-text text-muted">Must be at least 8 characters</small>
+		</div>
+		{{!-- Confirm Password --}}
+		<div class="form-group">
+			<label for="confirmPassword">Confirm Password</label>
+			<input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password">
+		</div>
+		<button type="submit" class="btn btn-primary" id="submit-btn-password">Change Password</button>
+	</div>
+	{{#if this.isAdmin}}
+	<div>
+		<h2>New User</h2>
+		<div class="form-group">
+			<label for="newUser">New User Email</label>
+			<input type="email" class="form-control" id="newUser" placeholder="Add user here">
+		</div>
+		<button type="submit" class="btn btn-primary" id="submit-btn-newUser">Submit New User</button>
+	</div>
+	<h2>Edit Your Time Tables</h2>
+	<div>
+		<table>
+			<tr>
+				<th>Day of the week</th>
+				<th>Open Time</th>
+				<th>Close Time</th>
+				<th>Iteration</th>
+				<th>Open</th>
+				<th>Submit</th>
+			</tr>
+			<tr>
+				<th>Sunday</th>
+				<td><input type="time" id="openTimeSunday"></td>
+				<td><input type="time" id="closeTimeSunday"></td>
+				<td><input type="number" id="iterationSunday" min="0"></td>
+				<td><input type="checkbox" id="isOpenSunday"></td>
+				<td><input type="submit" class="dayUpdate" data-weekday="Sunday" value="Submit"></td>
+			</tr>
+			<tr>
+				<th>Monday</th>
+				<td><input type="time" id="openTimeMonday"></td>
+				<td><input type="time" id="closeTimeMonday"></td>
+				<td><input type="number" id="iterationMonday" min="0"></td>
+				<td><input type="checkbox" id="isOpenMonday"></td>
+				<td><input type="submit" class="dayUpdate" data-weekday="Monday" value="Submit"></td>
+			</tr>
+			<tr>
+				<th>Tuesday</th>
+				<td><input type="time" id="openTimeTuesday"></td>
+				<td><input type="time" id="closeTimeTuesday"></td>
+				<td><input type="number" id="iterationTuesday" min="0"></td>
+				<td><input type="checkbox" id="isOpenTuesday"></td>
+				<td><input type="submit" class="dayUpdate" data-weekday="Tuesday" value="Submit"></td>
+			</tr>
+			<tr>
+				<th>Wednesday</th>
+				<td><input type="time" id="openTimeWednesday"></td>
+				<td><input type="time" id="closeTimeWednesday"></td>
+				<td><input type="number" id="iterationWednesday" min="0"></td>
+				<td><input type="checkbox" id="isOpenWednesday"></td>
+				<td><input type="submit" class="dayUpdate" data-weekday="Wednesday" value="Submit"></td>
+			</tr>
+			<tr>
+				<th>Thursday</th>
+				<td><input type="time" id="openTimeThursday"></td>
+				<td><input type="time" id="closeTimeThursday"></td>
+				<td><input type="number" id="iterationThursday"  min="0"></td>
+				<td><input type="checkbox" id="isOpenThursday"></td>
+				<td><input type="submit" class="dayUpdate" data-weekday="Thursday" value="Submit"></td>
+			</tr>
+			<tr>
+				<th>Friday</th>
+				<td><input type="time" id="openTimeFriday"></td>
+				<td><input type="time" id="closeTimeFriday"></td>
+				<td><input type="number" id="iterationFriday" min="0"></td>
+				<td><input type="checkbox" id="isOpenFriday"></td>
+				<td><input type="submit" class="dayUpdate" data-weekday="Friday" value="Submit" ></td>
+			</tr>
+			<tr>
+				<th>Saturday</th>
+				<td><input type="time" id="openTimeSaturday"></td>
+				<td><input type="time" id="closeTimeSaturday"></td>
+				<td><input type="number" id="iterationSaturday" min="0"></td>
+				<td><input type="checkbox" id="isOpenSaturday"></td>
+				<td><input type="submit" class="dayUpdate" data-weekday="Saturday" value="Submit"></td>
+			</tr>
+		</table>
+	</div>
+	{{/if}}
+</div>
