@@ -2,7 +2,6 @@ var path = require("path");
 
 var db = require('../models');
 var moment = require('moment');
-var url = require('url');
 
 module.exports = function (app) {
 
@@ -47,9 +46,8 @@ module.exports = function (app) {
   // })
 
  	app.get("/newuser", function(req, res){
- 		var url_parts = url.parse(req.url, true);
-		var query = url_parts.query;
-		res.render("newUser", query)
+ 		query= req.query.email;
+ 		res.render("newUser", query)
  	})
 
 	app.get("/account/:id", function (req, res) {
