@@ -6,6 +6,7 @@
  // the module will have buttons 1-4 to select how may players they will have in the group
  // selecting submit will send an $.post to the database storing the teetime
 $(document).ready(function(){
+	var resTime;
 	// display the information from reservations
 	$.get('/reservations', function(booked){
 		booked.forEach(function(instance) {
@@ -23,6 +24,7 @@ $(document).ready(function(){
 	$('#form').hide();
 
 	$('.submit').click(function(){
+		resTime = $(this).data('time');
 		// $('#form').show();
 		$('#form').dialog({
 			
@@ -42,7 +44,7 @@ $(document).ready(function(){
 	// if 4 players, can't sign up there
 	// else put request to add new names to reservations
 		var group = {
-			 teeTime: $('#time').val().trim(),
+			 teeTime: resTime,
 			 weekday: $('#day').data('day'),
 			 firstPlayerName: $('#p1').val().trim(),
 			 secondPlayerName: $('#p2').val().trim(),
