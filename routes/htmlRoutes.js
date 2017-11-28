@@ -10,6 +10,7 @@ module.exports = function (app) {
 		res.sendFile(path.join(__dirname, "./public/index.html"));
 	})
 	app.get("/teetime/:day", function (req, res) {
+		var id = req.query.id;
 		//pull day from days
 		db.day.findOne({
 			where: {
@@ -17,6 +18,7 @@ module.exports = function (app) {
 			}
 		}).then(day => {
 			var times = [];
+			console.log(day);
 			var open = parseInt(day.openTime.split(':')[0]) * 60 + parseInt(day.openTime.split(':')[1]);
 			var close = parseInt(day.closeTime.split(':')[0]) * 60 + parseInt(day.closeTime.split(':')[1]);
 			for (var x = open; x < close; x += day.iteration) {
@@ -28,7 +30,8 @@ module.exports = function (app) {
 			res.render("index",{
 				isOpen: day.isOpen,
 				weekday: day.weekday,
-				times
+				times,
+				id
 			});
 		})
 
@@ -39,9 +42,10 @@ module.exports = function (app) {
 		res.send("Hello tee time world!");
 	})
 
- 	app.get("/fail", function(req, res) {
-		res.send("Hello failed world!");
- 	})
+  // app.get("/fail", function(req, res) {
+  //   res.send("Hello failed world!");
+  // })
+
  	app.get("/newuser", function(req, res){
  		var url_parts = url.parse(req.url, true);
 		var query = url_parts.query;

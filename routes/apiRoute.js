@@ -36,6 +36,19 @@ module.exports = function (app) {
 			res.json(user);
 		});
 	})
+	//GET User Email
+	app.post("/users/email", function(req, res) {
+		console.log("we are here")
+		email = req.body.email;
+		console.log(email);
+		db.user.findOne({
+			where: {
+				email
+			}
+		}).then(user => {
+			res.json(user.id);
+		})
+	});
 	//POST User
 	app.post("/user", function (req, res) {
 		db.user.create({
