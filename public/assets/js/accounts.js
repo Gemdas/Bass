@@ -52,12 +52,4 @@ $(document).ready(function(){
 		})	
 	})
 
-
-	/*$("#rosterModal").on("click", function() {
-		event.preventDefault();
-	})*/
-
-/*	$("#setAdmin").on("click", function() {
-		event.preventDefault();
-	})*/
 });

@@ -18,12 +18,13 @@ module.exports = function (app) {
 			where: {
 				weekday: req.params.weekday
 			}	
-	}).then(day => {
-		res.json(day);
-	}).catch(err => {
-		res.json(err);
+		}).then(day => {
+			res.json(day);
+		}).catch(err => {
+			res.json(err);
+		})
 	})
-})
+
 	//GET ALL Users
 	app.get("/users", function (req, res) {
 		db.user.findAll({}).then(users => {
