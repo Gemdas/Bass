@@ -36,8 +36,8 @@ $(document).ready(function(){
 	})
 	$("#submit-btn-newUser").on("click", function(){
 		event.preventDefault();
-		var email= $("#newUser").val();
-		var server= document.origin;
+		var email = $("#newUser").val();
+		var server = document.origin;
 		$.ajax({
 			url:"/invite",
 			method:"POST",
