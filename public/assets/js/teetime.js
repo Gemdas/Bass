@@ -18,8 +18,19 @@ $(document).ready(function(){
 			$('.' + instance.teeTime + '.player3').text(instance.thirdPlayerName);
 			$('.' + instance.teeTime + '.player4').text(instance.fourthPlayerName);
 		})
-	})
+	});
 
+	$.get('/days', function(weekdays){
+		weekdays.forEach(function(day){
+		console.log(day.weekday);
+
+			var wkday = $('<button>');
+			wkday.addClass('btn btn-success btn-sm');
+			wkday.attr('data-letter', day.weekday);
+			wkday.text(day.weekday);
+			$('#days').append(wkday);
+		})
+	});
 
 	$('#form').hide();
 
