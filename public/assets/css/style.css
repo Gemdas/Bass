@@ -51,3 +51,29 @@
 	left: 80%;
 	position: absolute;
 }
+
+.content-block {
+	background-color: #ffffff;
+	padding: 10px;
+}
+
+.email-form-box {
+	width: 400px !important;
+	margin-right: 10px;
+}
+
+#view-roster {
+	margin-top: 20px;
+}
+
+.add-member-form {
+	margin-top: 10px;
+}
+
+.modal-backdrop {
+   background: none;
+}
+
+.modal-open .account-info {
+    -webkit-filter: blur(5px) grayscale(90%);
+}
