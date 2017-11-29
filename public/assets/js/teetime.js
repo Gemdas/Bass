@@ -20,17 +20,18 @@ $(document).ready(function(){
 		})
 	});
 
-	$.get('/days', function(weekdays){
-		weekdays.forEach(function(day){
-		console.log(day.weekday);
+	// $.get('/days', function(weekdays){
+	// 	weekdays.forEach(function(day){
+	// 	console.log(day.weekday);
 
-			var wkday = $('<button>');
-			wkday.addClass('btn btn-success btn-sm');
-			wkday.attr('data-letter', day.weekday);
-			wkday.text(day.weekday);
-			$('#days').append(wkday);
-		})
-	});
+	// 		var wkday = $('<button>');
+	// 		wkday.addClass('btn btn-success btn-sm');
+	// 		wkday.attr('data-letter', day.weekday);
+	// 		wkday.attr('href',)
+	// 		wkday.text(day.weekday);
+	// 		$('#days').append(wkday);
+	// 	})
+	// });
 
 	$('#form').hide();
 
