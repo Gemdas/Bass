@@ -51,12 +51,26 @@ module.exports = function (app) {
 		})
 	});
 	//POST User
-	app.post("/user", function (req, res) {
+	app.post("/users", function (req, res) {
 		db.user.create({
 			email: req.body.email,
 			password: req.body.password,
 			firstName: req.body.firstName,
 			lastName: req.body.lastName
+		}).then(user => {
+			res.json(user);
+		}).catch(err => {
+			res.json(err);
+		})
+	})
+	//PUT user
+	app.put("/users/password", function (req, res) {
+		db.user.update({
+			password: req.body.password,
+		}, {
+			where:{
+				email: req.body.email,
+			}
 		}).then(user => {
 			res.json(user);
 		}).catch(err => {
@@ -107,7 +121,7 @@ module.exports = function (app) {
 		})
 	})
 	//PUT Reservation
-	app.post("/reservations/:id", function (req, res) {
+	app.put("/reservations/:id", function (req, res) {
 		var secondPlayerName = req.body.secondPlayerName
 		var thirdPlayerName = req.body.thirdPlayerName
 		var fourthPlayerName = req.body.fourthPlayerName

@@ -70,7 +70,7 @@
             console.log("ajax post working in index.html");
         })*/
 
-        $.post("/users", user, function(res) {
+        $.post("/validate", user, function(res) {
             if (res) {
                 $.ajax({
                     url: "/users/email",
