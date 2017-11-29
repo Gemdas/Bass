@@ -1,10 +1,10 @@
 {{!-- javascript --}}
 <script src="../assets/js/accounts.js"></script>
-<div class="container">
+<div class="container account-info">
 	<div class="card-header">User Page</div>
 	<h1>Hello {{this.firstName}} {{this.lastName}}</h1>
 	<p>Email: {{this.email}}</p>
-	<div>
+	<div class="content-block">
 		<h2>Change your Password</h2>
 		{{!-- Current Password --}}
 		<div class="form-group">
@@ -24,17 +24,27 @@
 		</div>
 		<button type="submit" class="btn btn-primary" id="submit-btn-password">Change Password</button>
 	</div>
+
+	<br>
+
 	{{#if this.isAdmin}}
-	<div>
-		<h2>New User</h2>
-		<div class="form-group">
-			<label for="newUser">New User Email</label>
-			<input type="email" class="form-control" id="newUser" placeholder="Add user here">
+	<div class="content-block">
+		<h2>Members</h2>
+		<form class="form-inline add-member-form">
+			<div class="form-group">
+				<input type="email" class="form-control email-form-box" id="newUser" placeholder="Member Email Address">
 		</div>
-		<button type="submit" class="btn btn-primary" id="submit-btn-newUser">Submit New User</button>
+		<button type="submit" class="btn btn-success" id="submit-btn-newUser">Invite New Member</button>
+		</form>
+		
+		<button class="btn btn-primary" id="view-roster" data-toggle="modal" data-target="#rosterModal">View Member Roster</button>
 	</div>
-	<h2>Edit Your Time Tables</h2>
-	<div>
+
+	<br>
+
+	<div class="content-block">
+		<h2>Edit Your Time Tables</h2>
+	
 		<table>
 			<tr>
 				<th>Day of the week</th>
@@ -104,3 +114,33 @@
 	</div>
 	{{/if}}
 </div>
+
+<!-- Modal -->
+	<div class="container">
+		<div class="modal" id="rosterModal" tabindex="-1" role="document" aria-labelledby="rosterModal" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="memberRoster">Member Roster</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<h2>Member Roster</h2>
+						<ul>
+							{{#each member}}
+								<li>{{this.firstName}} {{this.lastName}}, {{this.email}}</li>
+								<button class="btn btn-primary" id="setAdmin">Set as Admin</button>
+							{{/each}}
+						</ul>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary">Save changes</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+		

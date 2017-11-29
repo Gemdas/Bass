@@ -15,12 +15,12 @@ CREATE TABLE days(
 
 CREATE TABLE reservations(
 	id INT NOT NULL AUTO_INCREMENT, 
-	time VARCHAR(8) NOT NULL,
+	teeTime VARCHAR(8) NOT NULL,
 	weekday VARCHAR(9) NOT NULL,
-	firstPlayName VARCHAR(50) NOT NULL, 
-	secondPlayName VARCHAR(50) NOT NULL, 
-	thirdPlayName VARCHAR(50) NOT NULL, 
-	fourthPlayName VARCHAR(50) NOT NULL, 
+	firstPlayerName VARCHAR(50) NOT NULL, 
+	secondPlayerName VARCHAR(50) NOT NULL, 
+	thirdPlayerName VARCHAR(50) NOT NULL, 
+	fourthPlayerName VARCHAR(50) NOT NULL, 
 	isFull BOOLEAN default false, 
 	createdAt TIMESTAMP,
 	updatedAt TIMESTAMP,
