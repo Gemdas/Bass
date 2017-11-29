@@ -84,10 +84,10 @@ module.exports = function (app) {
 			secondPlayerName = undefined;
 		}
 		if (thirdPlayerName === '') {
-			secondPlayerName = undefined;
+			thirdPlayerName = undefined;
 		}
 		if (fourthPlayerName === '') {
-			secondPlayerName = undefined;
+			fourthPlayerName = undefined;
 		} else {
 			isFull = !isFull;
 		}
@@ -115,10 +115,10 @@ module.exports = function (app) {
 			secondPlayerName = undefined;
 		}
 		if (thirdPlayerName === '') {
-			secondPlayerName = undefined;
+			thirdPlayerName = undefined;
 		}
 		if (fourthPlayerName === '') {
-			secondPlayerName = undefined;
+			fourthPlayerName = undefined;
 		} else {
 			isFull = !isFull;
 		}
