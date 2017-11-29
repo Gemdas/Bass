@@ -10,8 +10,34 @@ $(document).ready(function(){
 			$("#isOpen"+weekday).prop("checked", day.isOpen)
 		})
 	})
+	$("#submit-btn-password").on("click", function(){
+		if($("#password").val()!=$("#confirmPassword").val()){
+			return console.log({message: "Password and confirmation do not match", success:false});
+		}
+		var user = {
+			email: $("#emailStorage").data("email"),
+			password: $("#currentPassword").val().trim()
+		};
+		$.post("/validate", user, function(res) {
+			var user = {
+				email: $("#emailStorage").data("email"),
+				password: $("#password").val().trim()
+			};
+			$.ajax({
+				url:"/users/password",
+				method:"PUT",
+				contentType: 'application/json',
+				data:JSON.stringify(user),
+			}).done(function(data){
+				$("#confirmPassword").val("");
+				$("#password").val("");
+				$("#currentPassword").val("");
+			});
+		})
+
+	})
 	$(".dayUpdate").on("click", function(){
-		 event.preventDefault();
+		event.preventDefault();
 		var weekday = $(this).data("weekday");
 		var closeTime= $("#closeTime"+weekday).val();
 		var openTime= $("#openTime"+weekday).val();

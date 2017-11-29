@@ -1,5 +1,5 @@
 module.exports = function(app, passport) {
-app.post('/users', passport.authenticate('local-signin', {
+app.post('/validate', passport.authenticate('local-signin', {
             successRedirect: '/pass',
  
             failureRedirect: '/fail'

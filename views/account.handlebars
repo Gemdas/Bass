@@ -3,7 +3,7 @@
 <div class="container account-info">
 	<div class="card-header">User Page</div>
 	<h1>Hello {{this.firstName}} {{this.lastName}}</h1>
-	<p>Email: {{this.email}}</p>
+	<p data-email="{{this.email}}" id="emailStorage">Email: {{this.email}}</p>
 	<div class="content-block">
 		<h2>Change your Password</h2>
 		{{!-- Current Password --}}

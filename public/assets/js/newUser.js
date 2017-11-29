@@ -11,7 +11,7 @@ $(document).ready(function(){
 			email:$("#email").val()
 		};
 		$.ajax({
-			url:"/user/",
+			url:"/users/",
 			method:"POST",
 			contentType: 'application/json',
 			data:JSON.stringify(newUser),
