@@ -47,7 +47,7 @@ module.exports = function (app) {
 
  	app.get("/newuser", function(req, res){
  		query= req.query.email;
- 		res.render("newUser", query);
+ 		res.render("newUser", {email:query});
  	})
 
 	app.get("/account/:id", function (req, res) {
