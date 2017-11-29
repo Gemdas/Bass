@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "am1432",
-    "database": "teetime_db",
+    "password": "",
+    "database": "teetime",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
