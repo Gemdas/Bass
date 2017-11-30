@@ -63,10 +63,24 @@ module.exports = function (app) {
 			res.json(err);
 		})
 	})
-	//PUT user
+	//PUT user password
 	app.put("/users/password", function (req, res) {
 		db.user.update({
 			password: req.body.password,
+		}, {
+			where:{
+				email: req.body.email,
+			}
+		}).then(user => {
+			res.json(user);
+		}).catch(err => {
+			res.json(err);
+		})
+	})
+	//PUT users isAdmin
+	app.put("/users/admin", function (req, res) {
+		db.user.update({
+			isAdmin: true,
 		}, {
 			where:{
 				email: req.body.email,
