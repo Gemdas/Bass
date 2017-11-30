@@ -25,6 +25,12 @@ module.exports = function (app) {
 		})
 	})
 
+	app.get("/roster", function (req, res) {
+		db.user.findAll({}).then(users => {
+			res.json(users);
+		})
+	})
+
 	//GET ALL Users
 	app.get("/users", function (req, res) {
 		db.user.findAll({}).then(users => {

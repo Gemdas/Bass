@@ -127,17 +127,10 @@
 						</button>
 					</div>
 					<div class="modal-body">
-						<h2>Member Roster</h2>
-						<ul>
-							{{#each users}}
-								<li>{{this.firstName}} {{this.lastName}}, {{this.email}}</li>
-								<button class="btn btn-primary" id="setAdmin">Set as Admin</button>
-							{{/each}}
-						</ul>
+						<div id="roster-table"></div>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary">Save changes</button>
 					</div>
 				</div>
 			</div>

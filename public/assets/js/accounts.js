@@ -78,4 +78,37 @@ $(document).ready(function(){
 		})	
 	})
 
+	$.ajax({
+		url: "/roster",
+		method: "GET", 
+		success: function(users) {
+			var rosterTable = $("<table>").addClass("table");
+
+			users.forEach(function(user) {
+
+				var newRow = $("<tr>");
+
+				var firstName = $("<td>").text(user.firstName);
+				var lastName = $("<td>").text(user.lastName);
+				var email = $("<td>").text(user.email);
+				var setAdminBtn = $("<button>").text("Admin").addClass("btn btn-primary adminBtn").attr("id", "user" + user.id);
+
+				newRow.append(firstName).append(lastName).append(email).append(setAdminBtn);
+
+				rosterTable.append(newRow);
+			})
+
+			$("#roster-table").append(rosterTable);
+		}
+	})
+
+	// Not working yet...
+	/*$(".adminBtn").on("click", function() {
+		event.preventDefault();
+		console.log("click worked for admin btn");
+		console.log("this: " + this);
+		var userId = this.id;
+		console.log(userId);
+	})*/
+
 });
