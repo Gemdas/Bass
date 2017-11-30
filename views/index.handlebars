@@ -5,7 +5,7 @@
 <script src="../assets/js/teetime.js"></script>
 <div class="container">
 	<div id="edit">
-	<a href='/account/{{id}}'>Edit Profile</a>
+	<a href='/account/{{user.id}}'>Edit Profile</a>
 </div>
 <br>
 
@@ -40,7 +40,7 @@
 	<div class="row">
 		<div class="col-sm-12">
 			{{!-- {{#each User}} --}}
-			<h1>Hello</h1>
+			<h1>Hello {{user.firstName}} {{user.lastName}}</h1>
 			<h2 id="day" data-day={{this.weekday}}>Select a tee time for {{this.weekday}}</h2>
 			{{!-- {{/each}} --}}
 		</div>
@@ -133,7 +133,6 @@
 		    <label for="input">Player 4</label>
 		    <input type="input" class="form-control" id="p4" placeholder="Last Name">
   		</div>
-
 		{{!-- submit button for form --}}
 		<button type="submit" id="group" class="btn btn-primary">Submit</button>
 	</div>
