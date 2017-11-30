@@ -26,12 +26,15 @@ module.exports = function (app) {
 					dataTime: moment(parseInt(x / 60) + ":" + (x % 60),"HH:mm").format('hhmma')
 				})
 			}
-			res.render("index",{
-				isOpen: day.isOpen,
-				weekday: day.weekday,
-				times,
-				id
-			});
+			db.user.findById(id).then(function(user){
+				res.render("index",{
+					isOpen: day.isOpen,
+					weekday: day.weekday,
+					times,
+					user
+				});
+			})
+			
 		})
 
 		//the render page, using jquery, fills in the reservations
