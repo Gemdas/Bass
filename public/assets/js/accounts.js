@@ -83,6 +83,14 @@ $(document).ready(function(){
 		method: "GET", 
 		success: function(users) {
 			var rosterTable = $("<table>").addClass("table");
+			var tableHeader = $("<tr>");
+			var firstNameRow = $("<th>").text("First Name");
+			var lastNameRow = $("<th>").text("Last Name");
+			var emailRow = $("<th>").text("Email");
+			var roleRow = $("<th>").text("Role");
+
+			tableHeader.append(firstNameRow).append(lastNameRow).append(emailRow).append(roleRow);
+			rosterTable.append(tableHeader);
 
 			users.forEach(function(user) {
 
@@ -91,9 +99,21 @@ $(document).ready(function(){
 				var firstName = $("<td>").text(user.firstName);
 				var lastName = $("<td>").text(user.lastName);
 				var email = $("<td>").text(user.email);
-				var setAdminBtn = $("<button>").text("Admin").addClass("btn btn-primary adminBtn").attr("id", "user" + user.id);
 
-				newRow.append(firstName).append(lastName).append(email).append(setAdminBtn);
+				if (user.isAdmin) {
+					var role = $("<td>").text("Admin");
+					var td = $("<td>");
+					var setAdminBtn = $("<button>").text("Remove Admin").addClass("btn btn-danger removeAdmin adminBtn").attr("id", user.id);
+					td.append(setAdminBtn);
+
+				} else if (!user.isAdmin) {
+					var role = $("<td>").text("Member");
+					var td = $("<td>");
+					var setAdminBtn = $("<button>").text("Add Admin").addClass("btn btn-success addAdmin adminBtn").attr("id", user.id);
+					td.append(setAdminBtn);
+				}
+
+				newRow.append(firstName).append(lastName).append(email).append(role).append(td);
 
 				rosterTable.append(newRow);
 			})
@@ -102,13 +122,66 @@ $(document).ready(function(){
 		}
 	})
 
-	// Not working yet...
-	/*$(".adminBtn").on("click", function() {
-		event.preventDefault();
-		console.log("click worked for admin btn");
-		console.log("this: " + this);
+	$(document).on("click", ".adminBtn", function() {
+
+		if ($(this).hasClass("addAdmin")) {
+
+			var userId = this.id;
+			var button = $(this);
+		
+			$.ajax({
+				url: "/add-admin/" + userId,
+				method: "PUT", 
+				data: userId,
+				success: function(data) {
+					button.removeClass("btn-success addAdmin").addClass("btn-danger removeAdmin").text("Remove Admin");
+				}
+			})
+		}
+
+		if ($(this).hasClass("removeAdmin")) {
+
+			var userId = this.id;
+			var button = $(this);
+		
+			$.ajax({
+				url: "/remove-admin/" + userId,
+				method: "PUT", 
+				data: userId,
+				success: function(data) {
+					button.removeClass("btn-danger removeAdmin").addClass("btn-success addAdmin").text("Add Admin");
+				}
+			})
+		}
+	})
+
+
+	/*$(document).on("click", ".addAdmin", function() {
+	
 		var userId = this.id;
-		console.log(userId);
+		
+		$.ajax({
+			url: "/add-admin/" + userId,
+			method: "PUT", 
+			data: userId,
+			success: function(data) {
+				console.log(data)
+			}
+		})
+	})
+
+	$(document).on("click", ".removeAdmin", function() {
+	
+		var userId = this.id;
+		
+		$.ajax({
+			url: "/remove-admin/" + userId,
+			method: "PUT", 
+			data: userId,
+			success: function(data) {
+				console.log(data)
+			}
+		})
 	})*/
 
 });
