@@ -31,6 +31,34 @@ module.exports = function (app) {
 		})
 	})
 
+	app.put("/add-admin/:id", function (req, res) {
+		db.user.update({
+			isAdmin: true
+		}, {
+			where: {
+				id: req.params.id
+			}
+		}).then(user => {
+			res.json(user)
+		}).catch(error => {
+			res.json(error)
+		})
+	})
+
+	app.put("/remove-admin/:id", function (req, res) {
+		db.user.update({
+			isAdmin: false
+		}, {
+			where: {
+				id: req.params.id
+			}
+		}).then(user => {
+			res.json(user)
+		}).catch(error => {
+			res.json(error)
+		})
+	})
+
 	//GET ALL Users
 	app.get("/users", function (req, res) {
 		db.user.findAll({}).then(users => {
