@@ -1,3 +1,7 @@
+body, html {
+    height: 100%;
+}
+
 a:link, a:visited {
     color: white;
     text-align: center; 
@@ -29,7 +33,10 @@ a:link, a:visited {
 .background {
 	background-image: url('../img/tyson-dudley-122441.jpg');
 	background-size: 100% 200%;
+    background-position: center;
     background-repeat: no-repeat;
+    background-size: cover;
+
 }
 
 .hndlbkgrd {
