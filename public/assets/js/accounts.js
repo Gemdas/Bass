@@ -101,13 +101,13 @@ $(document).ready(function(){
 				var email = $("<td>").text(user.email);
 
 				if (user.isAdmin) {
-					var role = $("<td>").text("Admin");
+					var role = $("<td>").attr("id", "role" + user.id).text("Admin");
 					var td = $("<td>");
 					var setAdminBtn = $("<button>").text("Remove Admin").addClass("btn btn-danger removeAdmin adminBtn").attr("id", user.id);
 					td.append(setAdminBtn);
 
 				} else if (!user.isAdmin) {
-					var role = $("<td>").text("Member");
+					var role = $("<td>").attr("id", "role" + user.id).text("Member");
 					var td = $("<td>");
 					var setAdminBtn = $("<button>").text("Add Admin").addClass("btn btn-success addAdmin adminBtn").attr("id", user.id);
 					td.append(setAdminBtn);
@@ -128,6 +128,7 @@ $(document).ready(function(){
 
 			var userId = this.id;
 			var button = $(this);
+			var roleLabel = $("#role" + userId);
 		
 			$.ajax({
 				url: "/add-admin/" + userId,
@@ -135,6 +136,7 @@ $(document).ready(function(){
 				data: userId,
 				success: function(data) {
 					button.removeClass("btn-success addAdmin").addClass("btn-danger removeAdmin").text("Remove Admin");
+					roleLabel.text("Admin");
 				}
 			})
 		}
@@ -143,6 +145,7 @@ $(document).ready(function(){
 
 			var userId = this.id;
 			var button = $(this);
+			var roleLabel = $("#role" + userId);
 		
 			$.ajax({
 				url: "/remove-admin/" + userId,
@@ -150,6 +153,7 @@ $(document).ready(function(){
 				data: userId,
 				success: function(data) {
 					button.removeClass("btn-danger removeAdmin").addClass("btn-success addAdmin").text("Add Admin");
+					roleLabel.text("Member");
 				}
 			})
 		}
