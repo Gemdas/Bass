@@ -9,6 +9,10 @@ a:link, a:visited {
     display: inline-block;
 }
 
+.titleCase {
+	text-transform: capitalize;
+}
+
 #log_in {
 	position: relative;
 	top: 50%;
