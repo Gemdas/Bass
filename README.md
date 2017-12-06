@@ -6,17 +6,17 @@ This application serves as a member and administrator portal for a private golf 
 Login as an administrator at [bassteetime.herokuapp.com](bassteetime.herokuapp.com) and login as 'bassteetime@gmail.com' with password 'teetime' or create a new member profile [here](bassteetime.herokuapp.com/newuser). 
 
 ## Technologies Used
--HTML/CSS
--JavaScript
--jQuery
--Handlebars.js
--Boostrap
--Node.js
--Express
--MySQL
--Sequelize
--Passport.js
--Nodemailer
+- HTML/CSS
+- JavaScript
+- jQuery
+- Handlebars.js
+- Boostrap
+- Node.js
+- Express
+- MySQL
+- Sequelize
+- Passport.js
+- Nodemailer
 
 ## Setup Instructions
 The JavaScript files reference a MySql database called teetime_db, hosted locally. To create a similar database on your machine, please reference the schema.sql and seeds.sql files to see how the database was created. 
